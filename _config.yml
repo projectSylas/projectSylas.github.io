@@ -24,7 +24,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: HyeongJin`s Develoment Blog
+title: HyeongJin`s Development Blog
 email: hjkim7153@gmail.com
 author: projectSylas
 
@@ -220,5 +220,5 @@ plugins:
   - jekyll-spaceship
 
   # theme: owner/name --> Don't forget to remove/comment the gem-based theme option
-#remote_theme: "jeffreytse/jekyll-theme-yat"
-theme: jekyll-theme-yat
+remote_theme: "jeffreytse/jekyll-theme-yat"
+#theme: jekyll-theme-yat
