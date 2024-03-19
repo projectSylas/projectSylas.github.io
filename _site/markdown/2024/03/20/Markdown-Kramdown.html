@@ -9,8 +9,8 @@
 <meta property="og:title" content="Markdown &amp; Kramdown 문법" />
 <meta name="author" content="HyeongJin" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="기술블로그를 개발하며 Markdown 문법의 공부가 필요하여, 해당 내용들을 정리한 문서입니다." />
-<meta property="og:description" content="기술블로그를 개발하며 Markdown 문법의 공부가 필요하여, 해당 내용들을 정리한 문서입니다." />
+<meta name="description" content="Markdown 문법" />
+<meta property="og:description" content="Markdown 문법" />
 <link rel="canonical" href="http://0.0.0.0:4000/markdown/2024/03/20/Markdown-Kramdown.html" />
 <meta property="og:url" content="http://0.0.0.0:4000/markdown/2024/03/20/Markdown-Kramdown.html" />
 <meta property="og:site_name" content="HyeongJin`s Development Blog" />
@@ -19,9 +19,9 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Markdown &amp; Kramdown 문법" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"HyeongJin"},"dateModified":"2024-03-20T00:00:00-05:00","datePublished":"2024-03-20T00:00:00-05:00","description":"기술블로그를 개발하며 Markdown 문법의 공부가 필요하여, 해당 내용들을 정리한 문서입니다.","headline":"Markdown &amp; Kramdown 문법","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/markdown/2024/03/20/Markdown-Kramdown.html"},"url":"http://0.0.0.0:4000/markdown/2024/03/20/Markdown-Kramdown.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"HyeongJin"},"dateModified":"2024-03-20T00:00:00-05:00","datePublished":"2024-03-20T00:00:00-05:00","description":"Markdown 문법","headline":"Markdown &amp; Kramdown 문법","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/markdown/2024/03/20/Markdown-Kramdown.html"},"url":"http://0.0.0.0:4000/markdown/2024/03/20/Markdown-Kramdown.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="icon" href="assets/images/icon/favicon.png">
+<link rel="icon" href="https://projectSylas.github.io/assets/images/icon/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
@@ -408,7 +408,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   <div class="wrapper">
     <div class="site-header-inner"><span class="site-brand"><a class="site-brand-inner" rel="author" href="/">
-  <img class="site-favicon" title="HyeongJin`s Development Blog" src="assets/images/icon/favicon.png" onerror="this.style.display='none'">
+  <img class="site-favicon" title="HyeongJin`s Development Blog" src="https://projectSylas.github.io/assets/images/icon/favicon.png" onerror="this.style.display='none'">
   HyeongJin`s Development Blog
 </a>
 </span><nav class="site-nav">
@@ -938,7 +938,7 @@ function googleTranslateElementInit() {
 
 <header class="post-header">
   <h1 class="post-title p-name" itemprop="name headline">Markdown &amp; Kramdown 문법</h1>
-  <h2 class="post-subtitle"></h2>
+  <h2 class="post-subtitle">기술블로그를 개발하며 Markdown 문법의 공부가 필요하여, 해당 내용들을 정리한 문서입니다.</h2>
 
   <p class="post-meta">
     <time class="dt-published" datetime="2024-03-20T00:00:00-05:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Mar 20, 2024
@@ -978,103 +978,378 @@ function googleTranslateElementInit() {
 
 
 
-    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 5 mins</span>
   </p><div class="post-tags"><a class="post-tag" href="/tags.html#Markdown">#Markdown</a><a class="post-tag" href="/tags.html#Kramdown">#Kramdown</a></div></header>
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
     <div class="post-content e-content" itemprop="articleBody">
 
-      <p>기술블로그를 개발하며 Markdown 문법의 공부가 필요하여, 해당 내용들을 정리한 문서입니다.</p>
+      <blockquote>
+  <h2 id="markdown-문법">Markdown 문법</h2>
+</blockquote>
 
-<h1 id="markdown-문법">Markdown 문법</h1>
+<h2 id="폰트-크기-굵기-기울기">폰트 크기, 굵기, 기울기</h2>
 
-<h1 id="h1">H1</h1>
-<h2 id="h2">H2</h2>
-<h3 id="h3">H3</h3>
-<h4 id="h4">H4</h4>
-<h5 id="h5">H5</h5>
-<h6 id="h6">H6</h6>
+<h2 id="h1">H1</h2>
+<h3 id="h2">H2</h3>
+<h4 id="h3">H3</h4>
+<h5 id="h4">H4</h5>
+<h6 id="h5">H5</h6>
 
-<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="gh"># H1</span>
-<span class="gu">## H2</span>
-<span class="gu">### H3</span>
-<span class="gu">#### H4</span>
-<span class="gu">##### H5</span>
-<span class="gu">###### H6</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="gu">## H1</span>
+<span class="gu">### H2</span>
+<span class="gu">#### H3</span>
+<span class="gu">##### H4</span>
+<span class="gu">###### H5</span></code></pre></figure>
 
-<p>별 하나는 <em>기울여서</em>
-별 두개는 <strong>굵게</strong>
-별 세개는 <strong><em>강조하고 기울여서</em></strong>
-이렇게 <strong>혼용하여 <em>기울여서</em> 사용할 수 있다</strong></p>
+<p><em>기울여서</em></p>
+
+<p><strong>굵게</strong></p>
+
+<p><strong><em>강조하고 기울여서</em></strong></p>
+
+<p><strong>혼용하여 <em>기울여서</em> 사용할 수 있다</strong></p>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="ge">*기울여서*</span>
+<span class="gs">**굵게**</span>
+<span class="gs">***강조하고 기울여서**</span><span class="err">*</span>
+<span class="gs">**혼용하여 _기울여서_ 사용할 수 있다**</span></code></pre></figure>
+
+<h2 id="단락-나누기">단락 나누기</h2>
+
+<p>-</p>
+
+<p>–</p>
+
+<hr />
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="gh">-
+--
+</span><span class="p">---</span></code></pre></figure>
+
+<blockquote>
+  <p>BlockQuote</p>
+  <blockquote>
+    <p>Second line</p>
+    <blockquote>
+      <p>Third line</p>
+      <blockquote>
+        <p>Fourth line</p>
+        <blockquote>
+          <p>Fifth line</p>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="gt">&gt;BlockQuote</span>
+<span class="gt">&gt;&gt;Second line</span>
+<span class="gt">&gt;&gt;&gt;Third line</span>
+<span class="gt">&gt;&gt;&gt;&gt;Fourth line</span>
+<span class="gt">&gt;&gt;&gt;&gt;&gt;Fifth line</span></code></pre></figure>
+
+<h2 id="리스트">리스트</h2>
+
+<h3 id="ordered-list">Ordered list</h3>
+
+<ol>
+  <li>Item 1</li>
+  <li>A second item</li>
+  <li>Number 3</li>
+  <li>Ⅳ</li>
+</ol>
+
+<ul>
+  <li>참고: 네 번째 항목에는 유니코드 문자를 사용합니다.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Item 1
+2. A second item
+3. Number 3
+4. Ⅳ
+
+* 참고: 네 번째 항목에는 유니코드 문자를 사용합니다.
+</code></pre></div></div>
+
+<h2 id="테이블">테이블</h2>
+
+<h3 id="rowspan-and-colspan">Rowspan and Colspan</h3>
+<p><code class="language-plaintext highlighter-rouge">^^</code> 셀은 위의 셀과 병합되어야 함을 나타냅니다.
+이 기능은 <a href="https://github.com/pmccloghrylaing">pmcloghrylaing</a> 에서 제공합니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Stage</th>
+      <th style="text-align: right">Direct Products</th>
+      <th style="text-align: right">ATP Yields</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">Glycolysis</td>
+      <td style="text-align: right">2 ATP</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: right">^^</td>
+      <td style="text-align: right">2 NADH</td>
+      <td style="text-align: right">3–5 ATP</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">Pyruvaye oxidation</td>
+      <td style="text-align: right">2 NADH</td>
+      <td style="text-align: right">5 ATP</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">Citric acid cycle</td>
+      <td style="text-align: right">2 ATP</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: right">^^</td>
+      <td style="text-align: right">6 NADH</td>
+      <td style="text-align: right">15 ATP</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">^^</td>
+      <td style="text-align: right">2 FADH</td>
+      <td style="text-align: right">3 ATP</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">30–32 ATP</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Stage | Direct Products | ATP Yields |
+| ----: | --------------: | ---------: |
+|Glycolysis | 2 ATP                   ||
+|^^         | 2 NADH      | 3--5 ATP   |
+|Pyruvaye oxidation | 2 NADH | 5 ATP   |
+|Citric acid cycle  | 2 ATP           ||
+|^^                 | 6 NADH | 15 ATP  |
+|^^                 | 2 FADH | 3 ATP   |
+| 30--32 ATP                         |||
+</code></pre></div></div>
+
+<h3 id="multiline">Multiline</h3>
+<p>다음 행으로 셀 내용을 연결하기 위해 끝에 있는 백슬래시입니다.
+이 기능은 <a href="https://github.com/Lucas-C">Lucas-C</a> 에서 제공합니다</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">:     Easy Multiline     :</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Apple</td>
+      <td style="text-align: left">Banana</td>
+      <td style="text-align: left">Orange  \</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Apple</td>
+      <td style="text-align: left">Banana</td>
+      <td style="text-align: left">Orange  \</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Apple</td>
+      <td style="text-align: left">Banana</td>
+      <td style="text-align: left">Orange</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Apple</td>
+      <td style="text-align: left">Banana</td>
+      <td style="text-align: left">Orange  \</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Apple</td>
+      <td style="text-align: left">Banana</td>
+      <td style="text-align: left">Orange</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Apple</td>
+      <td style="text-align: left">Banana</td>
+      <td style="text-align: left">Orange</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|:     Easy Multiline     :|||
+|:------ |:------ |:-------- |
+| Apple  | Banana |  Orange  \
+| Apple  | Banana |  Orange  \
+| Apple  | Banana |  Orange
+| Apple  | Banana |  Orange  \
+| Apple  | Banana |  Orange  |
+| Apple  | Banana |  Orange  |
+</code></pre></div></div>
+
+<h3 id="headerless">Headerless</h3>
+<p>테이블 헤더를 제거할 수 있다.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>♜</td>
+      <td> </td>
+      <td>♝</td>
+      <td>♛</td>
+      <td>♚</td>
+      <td>♝</td>
+      <td>♞</td>
+      <td>♜</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>♟</td>
+      <td>♟</td>
+      <td>♟</td>
+      <td> </td>
+      <td>♟</td>
+      <td>♟</td>
+      <td>♟</td>
+    </tr>
+    <tr>
+      <td>♟</td>
+      <td> </td>
+      <td>♞</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>♗</td>
+      <td> </td>
+      <td> </td>
+      <td>♟</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>♙</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>♘</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>♙</td>
+      <td>♙</td>
+      <td>♙</td>
+      <td>♙</td>
+      <td> </td>
+      <td>♙</td>
+      <td>♙</td>
+      <td>♙</td>
+    </tr>
+    <tr>
+      <td>♖</td>
+      <td>♘</td>
+      <td>♗</td>
+      <td>♕</td>
+      <td>♔</td>
+      <td> </td>
+      <td> </td>
+      <td>♖</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|:     Fruits <span class="se">\|\|</span> Food           :|||
+|:-------- |:-------- |:------------ |
+| Apple    |: Apple  :|    Apple     <span class="err">\</span>
+| Banana   |  Banana  |    Banana    <span class="err">\</span>
+| Orange   |  Orange  |    Orange    |
+|:   Rowspan is 5   :||:  How's it? :|
+|^^   A. Peach       ||^^ 1. Fine    |
+|^^   B. Orange      ||^^ 2. Bad  $I = <span class="se">\i</span>nt <span class="se">\r</span>ho R^{2} dV$     |
+|^^   C. Banana      ||   It's OK! !<span class="p">[</span><span class="nv">example image</span><span class="p">][</span><span class="ss">my-image</span><span class="p">]</span>  |
+</code></pre></div></div>
+
+<blockquote>
+  <h2 id="kramdown-문법">Kramdown 문법</h2>
+</blockquote>
 
 <h2 id="이미지">이미지</h2>
 
-<p><img src="https://s3-media3.fl.yelpcdn.com/bphoto/cQ1Yoa75m2yUFFbY2xwuqw/348s.jpg" alt="Crepe" /></p>
+<p><img src="https://velog.velcdn.com/images/bluewind8791/post/ae5626e4-25ac-4948-b0bd-384a2da4f0e2/image.png" alt="Crepe" /></p>
 
-<p>It can also be centered!</p>
-
-<p><img src="https://s3-media3.fl.yelpcdn.com/bphoto/cQ1Yoa75m2yUFFbY2xwuqw/348s.jpg" alt="Crepe" class="center-block" /></p>
-
-<p>Here’s a code chunk:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\         backslash
-.         period
-*         asterisk
-_         underscore
-+         plus
--         minus
-=         equal sign
-`         back tick
-()[]{}&lt;&gt;  left and right parens/brackets/braces/angle brackets
-#         hash
-!         bang
-&lt;&lt;        left guillemet
-&gt;&gt;        right guillemet
-:         colon
-|         pipe
-"         double quote
-'         single quote
-$         dollar sign
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![Crepe](https://velog.velcdn.com/images/bluewind8791/post/ae5626e4-25ac-4948-b0bd-384a2da4f0e2/image.png)
 </code></pre></div></div>
 
-<p>And here is the same code with syntax highlighting:</p>
+<p>Kramdown에서는 이미지 사이즈 조절기능이 있다.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">5</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="nx">foo</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<p><img src="https://velog.velcdn.com/images/bluewind8791/post/ae5626e4-25ac-4948-b0bd-384a2da4f0e2/image.png" alt="mdlogo1" height="30px" width="30px" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![mdlogo1](https://velog.velcdn.com/images/bluewind8791/post/ae5626e4-25ac-4948-b0bd-384a2da4f0e2/image.png){:height="30px" width="30px"}
 </code></pre></div></div>
 
-<p>And here is the same code yet again but with line numbers:</p>
+<p>중앙 배치</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">5</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="nx">foo</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></figure>
+<p><img src="https://velog.velcdn.com/images/bluewind8791/post/ae5626e4-25ac-4948-b0bd-384a2da4f0e2/image.png" alt="Crepe" class="center-block" height="300px" width="300px" /></p>
 
-<h2 id="boxes">Boxes</h2>
-<p>You can add notification, warning and error boxes like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![Crepe](https://velog.velcdn.com/images/bluewind8791/post/ae5626e4-25ac-4948-b0bd-384a2da4f0e2/image.png){: .center-block :}
+</code></pre></div></div>
 
-<h3 id="notification">Notification</h3>
+<h2 id="인라인-코드블럭">인라인 코드블럭</h2>
 
-<p class="box-note"><strong>Note:</strong> This is a notification box.</p>
+<p>중간중간에 코드블럭을 삽입할 수 있다.
+코드블럭 안에 <code class="language-plaintext highlighter-rouge">백틱</code>을 넣어보자
+kramdown에는 랭귀지 코드블럭도 넣을 수 있다. System.out.println(“java”);{:.language-java}</p>
 
-<h3 id="warning">Warning</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>중간중간에 코드블럭을 삽입할 수 있다.
+코드블럭 안에 `백틱`을 넣어보자
+kramdown에는 랭귀지 코드블럭도 넣을 수 있다. System.out.println("java");{:.language-java}
+</code></pre></div></div>
+<h2 id="약어"><abbr title="단어 설명">약어</abbr></h2>
 
-<p class="box-warning"><strong>Warning:</strong> This is a warning box.</p>
+<p><abbr title="단어 설명">약어</abbr>에 대한 설명을 할 수 있는 기능이 있다.</p>
 
-<h3 id="error">Error</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>약어에 대한 설명을 할 수 있는 기능이 있다.
 
-<p class="box-error"><strong>Error:</strong> This is an error box.</p>
+*[약어]: 단어 설명
+</code></pre></div></div>
+
+<h2 id="각주">각주</h2>
+
+<p>각주<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>를 사용할 수 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>각주[^1]를 사용할 수 있다.
+
+[^1]: 각주에 대한 설명 내용 부분 (문서 최하단)
+</code></pre></div></div>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>각주에 대한 설명 내용 부분 (문서 최하단) <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
 
     </div>
@@ -1083,7 +1358,7 @@ foo(3)
 <div class="post-nav"><a class="previous" href="/git/2024/03/19/github-io.html" title="Docker와 github.io 활용하여 기술 블로그 만들기">Docker와 github.io 활용하여 기술 블로그 만들기...</a><span></span></div><div class="post-related">
       <div>Related Articles</div>
       <ul>
-        <li><a class="post-link" href="/git/2024/03/19/github-io.html" title="">Docker와 github.io 활용하여 기술 블로그 만들기</a></li><li><a class="post-link" href="/markdown/2024/03/20/Markdown-Kramdown.html" title="">Markdown &amp; Kramdown 문법</a></li></ul>
+        <li><a class="post-link" href="/example/2017/12/15/table-example.html" title="">Table example</a></li><li><a class="post-link" href="/jekyll/2018/12/07/welcome-to-jekyll.html" title="">Welcome to Jekyll!</a></li><li><a class="post-link" href="/junk/2016/08/12/my-example-post.html" title="">My Example Post</a></li><li><a class="post-link" href="/example/2017/12/18/video-example.html" title="">Video example</a></li></ul>
     </div><div class="post-comments"></div></section>
 </div>
 
