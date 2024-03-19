@@ -192,8 +192,8 @@ gitment:
   username: "projectSylas"
   repo: "projectSylas.github.io"
   client_id: "735715a1ba37dfa3a54f"
-  client_secret: "03f9a9fd0194d4388de666e9717822809a0178a8"
-  redirect_uri: "https://github.com/projectSylas"   # If you use a custom domain name
+  client_secret: "0291db90c858206918661a253cfdc5490578c6be"
+  redirect_uri: "https://github.com"   # If you use a custom domain name
 
 # Utterances comments
 # See https://utteranc.es/
