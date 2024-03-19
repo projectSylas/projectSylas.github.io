@@ -66,11 +66,11 @@ yat:
 # content_width: "920px"
 
 # Google analytics - GA4
-# google_analytics: [Measurement ID]
-# enableDNT: "false"
+google_analytics: [G-NKHG1G2K30]
+enableDNT: "true"
 
 # If you want to generate website sitemap, you can set true
-# sitemap: false
+sitemap: true
 
 # If you want to change site language, you can set lang option
 # lang: "en"  # default lang is en
@@ -135,7 +135,7 @@ yat:
 # it will be always kept on every visit (i.e. no matter
 # the browser is closed or not)
 #
-# night_mode: "auto"
+night_mode: "auto"
 
 # Code badge setting
 # You can enable or disable the code badge and so on
@@ -184,16 +184,16 @@ header_pages:
 # paginate: 5
 
 # Disqus comments
-# disqus:
-#   shortname: "Your Disqus username"
+disqus:
+  shortname: "projectSylas"
 
 # Gitment comments
-# gitment:
-#   username: "Your GitHub username"
-#   repo: "The repo to store comments"
-#   client_id: "Your client ID"
-#   client_secret: "Your client secret"
-#   redirect_uri: "Your redirect url"   # If you use a custom domain name
+gitment:
+  username: "projectSylas"
+  repo: "projectSylas.github.io"
+  client_id: "Your client ID"
+  client_secret: "Your client secret"
+  redirect_uri: "https://github.com/projectSylas"   # If you use a custom domain name
 
 # Utterances comments
 # See https://utteranc.es/
