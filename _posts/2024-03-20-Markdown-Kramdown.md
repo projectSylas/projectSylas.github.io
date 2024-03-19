@@ -1,38 +1,42 @@
 ---
 layout: post
-title: Docker와 github.io 활용하여 기술 블로그 만들기
-subtitle: 서브타이틀
+title: Markdown & Kramdown 문법
+subtitle: 
 author: HyeongJin
-categories: GIT
-tag: [git, github.io]
+categories: Markdown
+tag: [Markdown, Kramdown]
 sidebar: []
 published: true
 ---
 
-You can write regular [markdown](https://markdowntutorial.com/) here and Jekyll will automatically convert it to a nice webpage.  I strongly encourage you to [take 5 minutes to learn how to write in markdown](http://markdowntutorial.com/) - it'll teach you how to transform regular text into bold/italics/headings/tables/etc.
+기술블로그를 개발하며 Markdown 문법의 공부가 필요하여, 해당 내용들을 정리한 문서입니다.
 
-**Here is some bold text**
+# Markdown 문법
 
-## Here is a secondary heading
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
 
-Here's a useless table:
-
-| Number | Next number | Previous number |
-| :------ |:--- | :--- |
-| Five | Six | Four |
-| Ten | Eleven | Nine |
-| Seven | Eight | Six |
-| Two | Three | One |
-{% highlight ruby %}
-def print_hi(name)
-puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+{% highlight markdown%}
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
 {% endhighlight %}
 
 
-How about a yummy crepe?
+별 하나는 *기울여서*
+별 두개는 **굵게**
+별 세개는 ***강조하고 기울여서***
+이렇게 **혼용하여 _기울여서_ 사용할 수 있다**
+
+
+## 이미지
 
 ![Crepe](https://s3-media3.fl.yelpcdn.com/bphoto/cQ1Yoa75m2yUFFbY2xwuqw/348s.jpg)
 
@@ -41,7 +45,26 @@ It can also be centered!
 ![Crepe](https://s3-media3.fl.yelpcdn.com/bphoto/cQ1Yoa75m2yUFFbY2xwuqw/348s.jpg){: .center-block :}
 
 Here's a code chunk:
-
+~~~
+\         backslash
+.         period
+*         asterisk
+_         underscore
++         plus
+-         minus
+=         equal sign
+`         back tick
+()[]{}<>  left and right parens/brackets/braces/angle brackets
+#         hash
+!         bang
+<<        left guillemet
+>>        right guillemet
+:         colon
+|         pipe
+"         double quote
+'         single quote
+$         dollar sign
+~~~
 ~~~
 var foo = function(x) {
   return(x + 5);
