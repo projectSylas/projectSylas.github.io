@@ -191,8 +191,8 @@ disqus:
 gitment:
   username: "projectSylas"
   repo: "projectSylas.github.io"
-  client_id: "Your client ID"
-  client_secret: "Your client secret"
+  client_id: "735715a1ba37dfa3a54f"
+  client_secret: "03f9a9fd0194d4388de666e9717822809a0178a8"
   redirect_uri: "https://github.com/projectSylas"   # If you use a custom domain name
 
 # Utterances comments
