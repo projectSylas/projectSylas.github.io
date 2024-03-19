@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Markdown & Kramdown 문법
-subtitle: 
+subtitle: 기술블로그를 개발하며 Markdown 문법의 공부가 필요하여, 해당 내용들을 정리한 문서입니다.
 author: HyeongJin
 categories: Markdown
 tag: [Markdown, Kramdown]
@@ -9,101 +9,229 @@ sidebar: []
 published: true
 ---
 
-기술블로그를 개발하며 Markdown 문법의 공부가 필요하여, 해당 내용들을 정리한 문서입니다.
+> ## Markdown 문법
 
-# Markdown 문법
+## 폰트 크기, 굵기, 기울기
 
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
+## H1
+### H2
+#### H3
+##### H4
+###### H5
+
 
 {% highlight markdown%}
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
+## H1
+### H2
+#### H3
+##### H4
+###### H5
+{% endhighlight %}
+
+*기울여서*
+
+**굵게**
+
+***강조하고 기울여서***
+
+**혼용하여 _기울여서_ 사용할 수 있다**
+
+{% highlight markdown%}
+*기울여서*
+**굵게**
+***강조하고 기울여서***
+**혼용하여 _기울여서_ 사용할 수 있다**
 {% endhighlight %}
 
 
-별 하나는 *기울여서*
-별 두개는 **굵게**
-별 세개는 ***강조하고 기울여서***
-이렇게 **혼용하여 _기울여서_ 사용할 수 있다**
+## 단락 나누기
 
+
+-
+
+--
+
+---
+
+{% highlight markdown%}
+-
+--
+---
+{% endhighlight %}
+
+>BlockQuote
+>>Second line
+>>>Third line
+>>>>Fourth line
+>>>>>Fifth line
+
+{% highlight markdown%}
+>BlockQuote
+>>Second line
+>>>Third line
+>>>>Fourth line
+>>>>>Fifth line
+{% endhighlight %}
+
+## 리스트
+
+### Ordered list
+
+1. Item 1
+2. A second item
+3. Number 3
+4. Ⅳ
+
+* 참고: 네 번째 항목에는 유니코드 문자를 사용합니다.
+
+~~~
+1. Item 1
+2. A second item
+3. Number 3
+4. Ⅳ
+
+* 참고: 네 번째 항목에는 유니코드 문자를 사용합니다.
+~~~
+
+## 테이블
+
+### Rowspan and Colspan
+`^^` 셀은 위의 셀과 병합되어야 함을 나타냅니다.
+이 기능은 [pmcloghrylaing](https://github.com/pmccloghrylaing) 에서 제공합니다.
+
+| Stage | Direct Products | ATP Yields |
+| ----: | --------------: | ---------: |
+|Glycolysis | 2 ATP                   ||
+|^^         | 2 NADH      | 3--5 ATP   |
+|Pyruvaye oxidation | 2 NADH | 5 ATP   |
+|Citric acid cycle  | 2 ATP           ||
+|^^                 | 6 NADH | 15 ATP  |
+|^^                 | 2 FADH | 3 ATP   |
+| 30--32 ATP                         |||
+
+```
+| Stage | Direct Products | ATP Yields |
+| ----: | --------------: | ---------: |
+|Glycolysis | 2 ATP                   ||
+|^^         | 2 NADH      | 3--5 ATP   |
+|Pyruvaye oxidation | 2 NADH | 5 ATP   |
+|Citric acid cycle  | 2 ATP           ||
+|^^                 | 6 NADH | 15 ATP  |
+|^^                 | 2 FADH | 3 ATP   |
+| 30--32 ATP                         |||
+```
+
+
+
+### Multiline
+다음 행으로 셀 내용을 연결하기 위해 끝에 있는 백슬래시입니다.
+이 기능은 [Lucas-C](https://github.com/Lucas-C) 에서 제공합니다
+
+|:     Easy Multiline     :|||
+|:------ |:------ |:-------- |
+| Apple  | Banana |  Orange  \
+| Apple  | Banana |  Orange  \
+| Apple  | Banana |  Orange
+| Apple  | Banana |  Orange  \
+| Apple  | Banana |  Orange  |
+| Apple  | Banana |  Orange  |
+
+```
+|:     Easy Multiline     :|||
+|:------ |:------ |:-------- |
+| Apple  | Banana |  Orange  \
+| Apple  | Banana |  Orange  \
+| Apple  | Banana |  Orange
+| Apple  | Banana |  Orange  \
+| Apple  | Banana |  Orange  |
+| Apple  | Banana |  Orange  |
+```
+
+
+### Headerless
+테이블 헤더를 제거할 수 있다.
+
+|--|--|--|--|--|--|--|--|
+|♜ |  |♝ |♛ |♚ |♝ |♞ |♜ |
+|  |♟ |♟ |♟ |  |♟ |♟ |♟ |
+|♟ |  |♞ |  |  |  |  |  |
+|  |♗ |  |  |♟ |  |  |  |
+|  |  |  |  |♙ |  |  |  |
+|  |  |  |  |  |♘ |  |  |
+|♙ |♙ |♙ |♙ |  |♙ |♙ |♙ |
+|♖ |♘ |♗ |♕ |♔ |  |  |♖ |
+
+
+```markdown
+|:     Fruits \|\| Food           :|||
+|:-------- |:-------- |:------------ |
+| Apple    |: Apple  :|    Apple     \
+| Banana   |  Banana  |    Banana    \
+| Orange   |  Orange  |    Orange    |
+|:   Rowspan is 5   :||:  How's it? :|
+|^^   A. Peach       ||^^ 1. Fine    |
+|^^   B. Orange      ||^^ 2. Bad  $I = \int \rho R^{2} dV$     |
+|^^   C. Banana      ||   It's OK! ![example image][my-image]  |
+```
+
+> ## Kramdown 문법
 
 ## 이미지
 
-![Crepe](https://s3-media3.fl.yelpcdn.com/bphoto/cQ1Yoa75m2yUFFbY2xwuqw/348s.jpg)
 
-It can also be centered!
+![Crepe](https://velog.velcdn.com/images/bluewind8791/post/ae5626e4-25ac-4948-b0bd-384a2da4f0e2/image.png)
 
-![Crepe](https://s3-media3.fl.yelpcdn.com/bphoto/cQ1Yoa75m2yUFFbY2xwuqw/348s.jpg){: .center-block :}
-
-Here's a code chunk:
-~~~
-\         backslash
-.         period
-*         asterisk
-_         underscore
-+         plus
--         minus
-=         equal sign
-`         back tick
-()[]{}<>  left and right parens/brackets/braces/angle brackets
-#         hash
-!         bang
-<<        left guillemet
->>        right guillemet
-:         colon
-|         pipe
-"         double quote
-'         single quote
-$         dollar sign
-~~~
-~~~
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-~~~
-
-And here is the same code with syntax highlighting:
-
-```javascript
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
+```
+![Crepe](https://velog.velcdn.com/images/bluewind8791/post/ae5626e4-25ac-4948-b0bd-384a2da4f0e2/image.png)
 ```
 
-And here is the same code yet again but with line numbers:
+Kramdown에서는 이미지 사이즈 조절기능이 있다.
 
-{% highlight javascript linenos %}
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-{% endhighlight %}
+![mdlogo1](https://velog.velcdn.com/images/bluewind8791/post/ae5626e4-25ac-4948-b0bd-384a2da4f0e2/image.png){:height="30px" width="30px"}
 
-## Boxes
-You can add notification, warning and error boxes like this:
+```
+![mdlogo1](https://velog.velcdn.com/images/bluewind8791/post/ae5626e4-25ac-4948-b0bd-384a2da4f0e2/image.png){:height="30px" width="30px"}
+```
 
-### Notification
+중앙 배치
 
-{: .box-note}
-**Note:** This is a notification box.
+![Crepe](https://velog.velcdn.com/images/bluewind8791/post/ae5626e4-25ac-4948-b0bd-384a2da4f0e2/image.png){: .center-block height="300px" width="300px" :}
 
-### Warning
+```
+![Crepe](https://velog.velcdn.com/images/bluewind8791/post/ae5626e4-25ac-4948-b0bd-384a2da4f0e2/image.png){: .center-block :}
+```
 
-{: .box-warning}
-**Warning:** This is a warning box.
+## 인라인 코드블럭
 
-### Error
+중간중간에 코드블럭을 삽입할 수 있다.
+코드블럭 안에 `백틱`을 넣어보자
+kramdown에는 랭귀지 코드블럭도 넣을 수 있다. System.out.println("java");{:.language-java}
 
-{: .box-error}
-**Error:** This is an error box.
+```
+중간중간에 코드블럭을 삽입할 수 있다.
+코드블럭 안에 `백틱`을 넣어보자
+kramdown에는 랭귀지 코드블럭도 넣을 수 있다. System.out.println("java");{:.language-java}
+```
+## 약어
+
+약어에 대한 설명을 할 수 있는 기능이 있다.
+
+*[약어]: 단어 설명
+```
+약어에 대한 설명을 할 수 있는 기능이 있다.
+
+*[약어]: 단어 설명
+```
+
+## 각주
+
+각주[^1]를 사용할 수 있다.
+
+[^1]: 각주에 대한 설명 내용 부분 (문서 최하단)
+
+
+```
+각주[^1]를 사용할 수 있다.
+
+[^1]: 각주에 대한 설명 내용 부분 (문서 최하단)
+```
