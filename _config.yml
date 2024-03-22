@@ -42,10 +42,7 @@ author: projectSylas
 #
 copyright: "Unpublished Work (cleft) 2017-{currentYear} {author}"
 
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+#description: Hyeongjin Kim`s Development Blog
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "projectSylas.github.io" # the base hostname & protocol for your site, e.g. https://example.com
@@ -157,8 +154,8 @@ header_pages:
 # Page default value
 # defaults:
 #   home:
-#     heading: "Your awesome heading"
-#     subheading: "Your awesome subheading"
+    # heading: "Hyeongjin`s"
+    # subheading: "Development Blog"
 #     banner: "Your image url"
 
 # Banner default settings
@@ -188,19 +185,19 @@ header_pages:
 #   shortname: "projectSylas"
 
 # Gitment comments
-gitment:
-  username: "projectSylas"
-  repo: "projectSylas.github.io"
-  client_id: "${{ secrets.client_id }}"
-  client_secret: "${{ secrets.client_secret }}"
-  redirect_uri: "https://github.com"   # If you use a custom domain name
+# gitment:
+#   username: "projectSylas"
+#   repo: "projectSylas.github.io"
+#   client_id: "${{ secrets.client_id }}"
+#   client_secret: "${{ secrets.client_secret }}"
+#   redirect_uri: "https://github.com"   # If you use a custom domain name
 
 # Utterances comments
 # See https://utteranc.es/
 # set follow_site_theme true to make utterances' theme follow the site's
 
 # utterances:
-#   repo: "owner/repo"
+#   repo: "projectSylas/repo"
 #   issue_term: "title"
 #   label: "utterances comment"
 #   theme: "github-light"
@@ -223,3 +220,27 @@ plugins:
 remote_theme: "jeffreytse/jekyll-theme-yat"
 #theme: jekyll-theme-yat
 future: true
+
+# Social icons and sharing options
+
+social:
+  - name: Kakaotalk
+    icon: xi-kakaotalk
+    username: khg7153
+    url: kakao:khg7153
+    desc: Friend me on Kakaotalk
+    share: true
+
+  - name: GitHub
+    icon: fa fa-github
+    username: projectSylas
+    url: https://github.com/projectSylas
+    desc: Fork me on GitHub
+    share: false
+
+  - name: LinkedIn
+    icon: xi-linkedin-square
+    username: Hyeongjin Kim
+    url: https://www.linkedin.com/in/hyeongjin-kim-230a712b5/
+    desc: Connect with me on LinkedIn
+    share: true
