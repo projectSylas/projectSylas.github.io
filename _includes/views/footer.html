@@ -1,0 +1,66 @@
+<footer class="site-footer h-card">
+
+	<div class="wrapper">
+
+		<h3 class="footer-heading"></h3>
+
+		<div class="site-navigation" style="display: inline; float:left;">
+
+			<p><strong>Site Map</strong></p>
+			<ul class="pages">
+				<li><a href="/archives/">ARCHIVES</a></li>
+				<li><a href="/categories/">CATEGORIES</a></li>
+				<li><a href="/tags/">TAGS</a></li>
+				
+				<!-- <li><a href="/works">Works</a></li> -->
+
+				<!-- {% for page in site.pages %}
+					{% if page.title and page.main_nav != false %}
+						<li class="nav-link"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+					{% endif %}
+				{% endfor %} -->
+			</ul>
+		</div>
+
+		<div class="site-contact" style="display: inline; float:right;">
+
+			<p><strong>Contact</strong></p>
+			<ul class="social-media-list">
+				<li>
+					<a href="mailto:{{ site.email }}">
+						<i class="fa fa-envelope-o"></i>
+						<span class="username">{{ site.email }}</span>
+					</a>
+				</li>
+
+				{% for social in site.social %}
+				{% if social.url != null %}
+				<li>
+					<a href="{{ social.url }}" title="{{ social.desc }}">
+						<i class="{{ social.icon }}"></i>
+						<span class="username">{% if social.username %}{{ social.username }}{% else %}{{ social.name }}{% endif %}</span>
+					</a>
+				</li>
+				{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+
+
+
+		
+	</div>
+	<div><p></p></div>
+	<div class="wrapper">
+		<div class="site-signature">
+			<p class="rss-subscribe text"><strong>Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></strong></p>
+			<!-- <p class="text">{{ site.description }}</p> -->
+		</div>
+		<p id="year" class="text"></p>
+		<script>
+			const p = document.getElementById("year");
+			p.innerHTML = `© ${new Date().getFullYear()}, Built by Hyeongjin`;;
+		</script>
+	</div>
+</footer>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
