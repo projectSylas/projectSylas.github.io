@@ -4,7 +4,7 @@ title: Table example
 subtitle:
 categories: example
 tags: [table]
-published: false
+published: true
 ---
 
 ## Table example as below

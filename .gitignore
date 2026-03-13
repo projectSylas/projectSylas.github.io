@@ -12,3 +12,9 @@ vendor/
 
 #
 LICENSE.md
+
+# Auto-post scripts
+scripts/.env
+scripts/logs/
+scripts/linkedin_cookies.json
+scripts/linkedin_state.json
