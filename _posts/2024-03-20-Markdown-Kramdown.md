@@ -5,7 +5,7 @@ subtitle: 기술블로그를 개발하며 Markdown 문법의 공부가 필요하
 author: HyeongJin
 categories: Markdown
 tag: [Markdown, Kramdown]
-sidebar: []
+sidebar: [category-list, google-translate]
 published: true
 ---
 
