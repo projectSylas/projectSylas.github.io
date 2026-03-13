@@ -232,11 +232,17 @@ def git_push(filepath: Path, title: str) -> None:
             ["git", "rev-parse", "--abbrev-ref", "HEAD"],
             cwd=BLOG_ROOT
         ).decode().strip()
-        subprocess.run(
-            ["git", "push", "origin", branch],
-            cwd=BLOG_ROOT, check=True
-        )
-        print(f"[Push] 완료: {title}")
+        subprocess.run(["git", "push", "origin", branch], cwd=BLOG_ROOT, check=True)
+
+        # develop 브랜치면 main에도 머지해서 GitHub Pages 즉시 반영
+        if branch != "main":
+            subprocess.run(["git", "checkout", "main"], cwd=BLOG_ROOT, check=True)
+            subprocess.run(["git", "merge", branch, "--ff-only"], cwd=BLOG_ROOT, check=True)
+            subprocess.run(["git", "push", "origin", "main"], cwd=BLOG_ROOT, check=True)
+            subprocess.run(["git", "checkout", branch], cwd=BLOG_ROOT, check=True)
+            print(f"[Push] {branch} → main 머지 완료: {title}")
+        else:
+            print(f"[Push] 완료: {title}")
     except subprocess.CalledProcessError as e:
         print(f"[오류] git 작업 실패: {e}", file=sys.stderr)
         sys.exit(1)
