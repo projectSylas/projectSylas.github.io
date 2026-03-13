@@ -1,0 +1,53 @@
+name: Auto Blog Post
+
+on:
+  schedule:
+    # 매일 오전 0시 UTC = 오전 9시 KST
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "포스트 주제 (비워두면 RSS에서 자동 선택)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Generate & commit post
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          TOPIC="${{ github.event.inputs.topic }}"
+          if [ -n "$TOPIC" ]; then
+            python scripts/auto_post.py --topic "$TOPIC" --no-push
+          else
+            python scripts/auto_post.py --no-push
+          fi
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _posts/
+          # 변경사항이 있을 때만 커밋
+          git diff --cached --quiet || git commit -m "post: auto-generated $(date +%Y-%m-%d)"
+          git push
