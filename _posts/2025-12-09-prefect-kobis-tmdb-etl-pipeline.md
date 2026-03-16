@@ -3,6 +3,7 @@ layout: post
 title: Prefect로 KOBIS/TMDB 영화 데이터 ETL 파이프라인 구축
 subtitle: 공공 API 데이터를 DB에 안정적으로 적재하는 파이프라인 설계
 author: HyeongJin
+date: 2025-12-09 11:00:00 +0900
 categories: AI/LLM
 tags: [AI, Python, DevOps]
 sidebar: []

@@ -3,6 +3,7 @@ layout: post
 title: Node.js + Python으로 멀티플랫폼 소셜 미디어 크롤러 만든 경험
 subtitle: 인스타그램, 네이버, 트위터, 커뮤니티까지 한 서버에서
 author: HyeongJin
+date: 2022-12-16 09:00:00 +0900
 categories: Backend
 tags: [Python, backend, DevOps]
 sidebar: []

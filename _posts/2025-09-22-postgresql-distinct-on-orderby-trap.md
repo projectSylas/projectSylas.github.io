@@ -3,6 +3,7 @@ layout: post
 title: PostgreSQL DISTINCT ON과 ORDER BY 함께 쓸 때 빠지는 함정
 subtitle: 경력 페이지네이션에서 만난 쿼리 오류와 해결 과정
 author: HyeongJin
+date: 2025-09-22 10:00:00 +0900
 categories: Backend
 tags: [PostgreSQL, Django, backend]
 sidebar: []

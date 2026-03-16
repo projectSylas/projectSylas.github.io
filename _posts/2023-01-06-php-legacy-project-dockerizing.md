@@ -3,6 +3,7 @@ layout: post
 title: PHP 5.4 레거시 프로젝트 Docker로 이전한 경험
 subtitle: 구버전 PHP 로컬 환경 구축 고통 없애기
 author: HyeongJin
+date: 2023-01-06 10:30:00 +0900
 categories: DevOps
 tags: [Docker, CI/CD, DevOps]
 sidebar: []

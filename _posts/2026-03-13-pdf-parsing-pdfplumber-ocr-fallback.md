@@ -3,6 +3,7 @@ layout: post
 title: 스캔 PDF 처리 - pdfplumber + tesseract OCR fallback 구현
 subtitle: AI 시나리오 파이프라인에서 다양한 PDF를 파싱하는 방법
 author: HyeongJin
+date: 2026-03-13 11:00:00 +0900
 categories: AI/LLM
 tags: [Python, AI, backend]
 sidebar: []

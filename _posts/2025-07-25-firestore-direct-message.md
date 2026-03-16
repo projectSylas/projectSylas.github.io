@@ -3,6 +3,7 @@ layout: post
 title: Firestore로 실시간 채팅 구현 - React Native에서 쓸 때 주의할 것들
 subtitle: 실시간 메시지 동기화와 키보드 레이아웃 이슈
 author: HyeongJin
+date: 2025-07-25 09:00:00 +0900
 categories: React
 tags: [React, frontend, JavaScript]
 sidebar: []

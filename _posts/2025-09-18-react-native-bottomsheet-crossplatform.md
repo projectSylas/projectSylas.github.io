@@ -3,6 +3,7 @@ layout: post
 title: React Native BottomSheet 크로스플랫폼 이슈 정리
 subtitle: iOS/Android 동작 차이와 snap points 설계
 author: HyeongJin
+date: 2025-09-18 09:30:00 +0900
 categories: React
 tags: [React, frontend, JavaScript]
 sidebar: []

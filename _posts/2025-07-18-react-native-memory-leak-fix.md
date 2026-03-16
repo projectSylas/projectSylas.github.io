@@ -3,6 +3,7 @@ layout: post
 title: React Native 메모리 누수 잡기 - FlatList, React Query, 타이머
 subtitle: JS 프레임 드랍과 메모리 누수를 유발한 세 가지 패턴
 author: HyeongJin
+date: 2025-07-18 10:00:00 +0900
 categories: React
 tags: [React, frontend, JavaScript]
 sidebar: []

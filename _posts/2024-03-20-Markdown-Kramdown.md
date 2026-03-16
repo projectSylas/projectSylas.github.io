@@ -3,6 +3,7 @@ layout: post
 title: Markdown & Kramdown 문법
 subtitle: 기술블로그를 개발하며 Markdown 문법의 공부가 필요하여, 해당 내용들을 정리한 문서입니다.
 author: HyeongJin
+date: 2024-03-20 09:00:00 +0900
 categories: Markdown
 tag: [Markdown, Kramdown]
 sidebar: []
