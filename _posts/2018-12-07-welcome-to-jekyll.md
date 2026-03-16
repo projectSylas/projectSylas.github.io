@@ -4,7 +4,7 @@ title: Welcome to Jekyll!
 subtitle: A awesome static site generator.
 author: Jeffrey
 categories: jekyll
-published: true
+published: false
 banner:
   video: https://vjs.zencdn.net/v/oceans.mp4
   loop: true
