@@ -3,6 +3,7 @@ layout: post
 title: NICE 본인인증 React Native WebView 연동 삽질기
 subtitle: Django 백엔드 암호화 처리와 iOS/Android 딥링크 차이
 author: HyeongJin
+date: 2025-08-08 10:00:00 +0900
 categories: React
 tags: [React, frontend, Django]
 sidebar: []

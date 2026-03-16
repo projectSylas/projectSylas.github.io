@@ -3,6 +3,7 @@ layout: post
 title: Django ViewSet에 쿼리 실행 시간 측정 붙이기
 subtitle: 성능 병목을 찾기 전에 먼저 측정부터
 author: HyeongJin
+date: 2025-03-13 10:00:00 +0900
 categories: Backend
 tags: [Django, PostgreSQL, backend]
 sidebar: []

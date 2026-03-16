@@ -3,6 +3,7 @@ layout: post
 title: LLM으로 영화 스태프 데이터 Silver ETL 만들기
 subtitle: 비정형 스태프 명단을 구조화된 DB 레코드로 변환하는 파이프라인
 author: HyeongJin
+date: 2026-01-13 09:00:00 +0900
 categories: AI/LLM
 tags: [AI, LLM, Python]
 sidebar: []

@@ -3,6 +3,7 @@ layout: post
 title: 나무위키 미디어 데이터 크롤링 + KOBIS-TMDB 매칭 자동화
 subtitle: ETL 클래스 설계와 신뢰도 기반 데이터 병합 전략
 author: HyeongJin
+date: 2025-12-19 10:30:00 +0900
 categories: AI/LLM
 tags: [Python, AI, backend]
 sidebar: []

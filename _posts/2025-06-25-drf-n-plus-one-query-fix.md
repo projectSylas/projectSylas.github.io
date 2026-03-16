@@ -3,6 +3,7 @@ layout: post
 title: DRF 피드 API N+1 쿼리 전부 잡기
 subtitle: prefetch_related와 select_related로 쿼리 43개를 4개로
 author: HyeongJin
+date: 2025-06-25 10:30:00 +0900
 categories: Backend
 tags: [Django, PostgreSQL, backend]
 sidebar: []

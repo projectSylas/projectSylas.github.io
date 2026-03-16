@@ -3,6 +3,7 @@ layout: post
 title: 배너에 DB 실시간 통계 붙이기 - 클라이언트에서 계산하던 걸 API로 옮긴 이야기
 subtitle: 프론트 계산 로직을 서버로 이전하고 동적 게시판 카테고리도 같이
 author: HyeongJin
+date: 2025-07-09 09:30:00 +0900
 categories: Backend
 tags: [Django, backend]
 sidebar: []

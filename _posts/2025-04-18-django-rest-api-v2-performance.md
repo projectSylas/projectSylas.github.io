@@ -3,6 +3,7 @@ layout: post
 title: Django REST API v2 전환과 쿼리 성능 최적화
 subtitle: MediaMetaInfo 모델 도입과 select_related 전면 적용
 author: HyeongJin
+date: 2025-04-18 11:00:00 +0900
 categories: Backend
 tags: [Django, PostgreSQL, backend]
 sidebar: []

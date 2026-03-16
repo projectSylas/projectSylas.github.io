@@ -3,6 +3,7 @@ layout: post
 title: Clova OCR API로 영상 크레딧 텍스트 자동 추출
 subtitle: 엔딩 크레딧에서 스태프 정보를 뽑는 파이프라인
 author: HyeongJin
+date: 2026-03-04 10:00:00 +0900
 categories: AI/LLM
 tags: [AI, LLM, Python]
 sidebar: []
