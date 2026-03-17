@@ -1,77 +1,48 @@
 ---
 layout: post
-title: Airflow
-subtitle: 서브타이틀
+title: Docker로 Apache Airflow 로컬 환경 구성하기
+subtitle: CeleryExecutor + PostgreSQL + Redis — docker-compose로 Airflow 2.5.1 띄우기
 author: HyeongJin
 date: 2024-03-22 09:00:00 +0900
-categories: GIT
-tag: [git, github.io]
+categories: DevOps
+tags: [Docker, DevOps, Airflow, Python]
 sidebar: []
 published: true
 ---
 
+Apache Airflow를 로컬에서 돌리기 위한 Docker Compose 구성을 정리한다. 공식 문서에서 제공하는 `docker-compose.yaml` 기반이고, CeleryExecutor로 Worker를 여러 개 띄울 수 있는 구성이다.
+
 ## 사전 준비
- - Docker 설치
- - Docker compose v1.29.1 이상
 
-### 1. docker-compose.yaml 파일 작성
-```
-# Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the NOTICE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-# KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
-#
+- Docker 설치
+- Docker Compose v1.29.1 이상
 
-# Basic Airflow cluster configuration for CeleryExecutor with Redis and PostgreSQL.
-#
-# WARNING: This configuration is for local development. Do not use it in a production deployment.
-#
-# This configuration supports basic configuration using environment variables or an .env file
-# The following variables are supported:
-#
-# AIRFLOW_IMAGE_NAME           - Docker image name used to run Airflow.
-#                                Default: apache/airflow:2.5.1
-# AIRFLOW_UID                  - User ID in Airflow containers
-#                                Default: 50000
-# AIRFLOW_PROJ_DIR             - Base path to which all the files will be volumed.
-#                                Default: .
-# Those configurations are useful mostly in case of standalone testing/running Airflow in test/try-out mode
-#
-# _AIRFLOW_WWW_USER_USERNAME   - Username for the administrator account (if requested).
-#                                Default: airflow
-# _AIRFLOW_WWW_USER_PASSWORD   - Password for the administrator account (if requested).
-#                                Default: airflow
-# _PIP_ADDITIONAL_REQUIREMENTS - Additional PIP requirements to add when starting all containers.
-#                                Default: ''
-#
-# Feel free to modify this file to suit your needs.
----
+## 구성 요소
+
+CeleryExecutor 구성에서 돌아가는 서비스들:
+
+| 서비스 | 역할 |
+|--------|------|
+| `postgres` | Airflow 메타데이터 DB |
+| `redis` | Celery 브로커 (태스크 큐) |
+| `airflow-webserver` | Web UI (포트 8080) |
+| `airflow-scheduler` | DAG 스케줄링 |
+| `airflow-worker` | 태스크 실행 |
+| `airflow-triggerer` | Deferrable Operator 처리 |
+| `airflow-init` | 초기화 (DB 마이그레이션 + 관리자 계정 생성) |
+| `flower` | Celery Worker 모니터링 UI (선택) |
+
+## docker-compose.yaml
+
+```yaml
 version: '3'
 x-airflow-common:
   &airflow-common
-  # In order to add custom dependencies or upgrade provider packages you can use your extended image.
-  # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
-  # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
   image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.5.1}
-  # build: .
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
-    # For backward compatibility, with Airflow <2.3
-    AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
@@ -150,17 +121,8 @@ services:
   airflow-worker:
     <<: *airflow-common
     command: celery worker
-    healthcheck:
-      test:
-        - "CMD-SHELL"
-        - 'celery --app airflow.executors.celery_executor.app inspect ping -d "celery@$${HOSTNAME}"'
-      interval: 10s
-      timeout: 10s
-      retries: 5
     environment:
       <<: *airflow-common-env
-      # Required to handle warm shutdown of the celery workers properly
-      # See https://airflow.apache.org/docs/docker-stack/entrypoint.html#signal-propagation
       DUMB_INIT_SETSID: "0"
     restart: always
     depends_on:
@@ -171,11 +133,6 @@ services:
   airflow-triggerer:
     <<: *airflow-common
     command: triggerer
-    healthcheck:
-      test: ["CMD-SHELL", 'airflow jobs check --job-type TriggererJob --hostname "$${HOSTNAME}"']
-      interval: 10s
-      timeout: 10s
-      retries: 5
     restart: always
     depends_on:
       <<: *airflow-common-depends-on
@@ -185,97 +142,23 @@ services:
   airflow-init:
     <<: *airflow-common
     entrypoint: /bin/bash
-    # yamllint disable rule:line-length
     command:
       - -c
       - |
-        function ver() {
-          printf "%04d%04d%04d%04d" $${1//./ }
-        }
-        airflow_version=$$(AIRFLOW__LOGGING__LOGGING_LEVEL=INFO && gosu airflow airflow version)
-        airflow_version_comparable=$$(ver $${airflow_version})
-        min_airflow_version=2.2.0
-        min_airflow_version_comparable=$$(ver $${min_airflow_version})
-        if (( airflow_version_comparable < min_airflow_version_comparable )); then
-          echo
-          echo -e "\033[1;31mERROR!!!: Too old Airflow version $${airflow_version}!\e[0m"
-          echo "The minimum Airflow version supported: $${min_airflow_version}. Only use this or higher!"
-          echo
-          exit 1
-        fi
-        if [[ -z "${AIRFLOW_UID}" ]]; then
-          echo
-          echo -e "\033[1;33mWARNING!!!: AIRFLOW_UID not set!\e[0m"
-          echo "If you are on Linux, you SHOULD follow the instructions below to set "
-          echo "AIRFLOW_UID environment variable, otherwise files will be owned by root."
-          echo "For other operating systems you can get rid of the warning with manually created .env file:"
-          echo "    See: https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html#setting-the-right-airflow-user"
-          echo
-        fi
-        one_meg=1048576
-        mem_available=$$(($$(getconf _PHYS_PAGES) * $$(getconf PAGE_SIZE) / one_meg))
-        cpus_available=$$(grep -cE 'cpu[0-9]+' /proc/stat)
-        disk_available=$$(df / | tail -1 | awk '{print $$4}')
-        warning_resources="false"
-        if (( mem_available < 4000 )) ; then
-          echo
-          echo -e "\033[1;33mWARNING!!!: Not enough memory available for Docker.\e[0m"
-          echo "At least 4GB of memory required. You have $$(numfmt --to iec $$((mem_available * one_meg)))"
-          echo
-          warning_resources="true"
-        fi
-        if (( cpus_available < 2 )); then
-          echo
-          echo -e "\033[1;33mWARNING!!!: Not enough CPUS available for Docker.\e[0m"
-          echo "At least 2 CPUs recommended. You have $${cpus_available}"
-          echo
-          warning_resources="true"
-        fi
-        if (( disk_available < one_meg * 10 )); then
-          echo
-          echo -e "\033[1;33mWARNING!!!: Not enough Disk space available for Docker.\e[0m"
-          echo "At least 10 GBs recommended. You have $$(numfmt --to iec $$((disk_available * 1024 )))"
-          echo
-          warning_resources="true"
-        fi
-        if [[ $${warning_resources} == "true" ]]; then
-          echo
-          echo -e "\033[1;33mWARNING!!!: You have not enough resources to run Airflow (see above)!\e[0m"
-          echo "Please follow the instructions to increase amount of resources available:"
-          echo "   https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html#before-you-begin"
-          echo
-        fi
         mkdir -p /sources/logs /sources/dags /sources/plugins
         chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins}
         exec /entrypoint airflow version
-    # yamllint enable rule:line-length
     environment:
       <<: *airflow-common-env
       _AIRFLOW_DB_UPGRADE: 'true'
       _AIRFLOW_WWW_USER_CREATE: 'true'
       _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
-      _PIP_ADDITIONAL_REQUIREMENTS: ''
     user: "0:0"
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
 
-  airflow-cli:
-    <<: *airflow-common
-    profiles:
-      - debug
-    environment:
-      <<: *airflow-common-env
-      CONNECTION_CHECK_MAX_COUNT: "0"
-    # Workaround for entrypoint issue. See: https://github.com/apache/airflow/issues/16252
-    command:
-      - bash
-      - -c
-      - airflow
-
-  # You can enable flower by adding "--profile flower" option e.g. docker-compose --profile flower up
-  # or by explicitly targeted on the command line e.g. docker-compose up flower.
-  # See: https://docs.docker.com/compose/profiles/
+  # Celery Worker 모니터링 — docker-compose --profile flower up 으로 선택 실행
   flower:
     <<: *airflow-common
     command: celery flower
@@ -283,11 +166,6 @@ services:
       - flower
     ports:
       - 5555:5555
-    healthcheck:
-      test: ["CMD", "curl", "--fail", "http://localhost:5555/"]
-      interval: 10s
-      timeout: 10s
-      retries: 5
     restart: always
     depends_on:
       <<: *airflow-common-depends-on
@@ -298,3 +176,48 @@ volumes:
   postgres-db-volume:
 ```
 
+## 실행
+
+```bash
+# AIRFLOW_UID 설정 (Linux 필수, macOS는 생략 가능)
+echo -e "AIRFLOW_UID=$(id -u)" > .env
+
+# 초기화 + 실행
+docker-compose up airflow-init
+docker-compose up -d
+
+# Flower 모니터링 포함
+docker-compose --profile flower up -d
+```
+
+실행 후 `http://localhost:8080`에서 Web UI 접속. 기본 계정은 `airflow` / `airflow`.
+
+## DAG 작성
+
+`dags/` 디렉토리에 `.py` 파일을 추가하면 Airflow가 자동으로 감지한다.
+
+```python
+from airflow import DAG
+from airflow.operators.python import PythonOperator
+from datetime import datetime
+
+def my_task():
+    print("Hello Airflow!")
+
+with DAG(
+    dag_id="my_first_dag",
+    start_date=datetime(2024, 1, 1),
+    schedule_interval="@daily",
+    catchup=False,
+) as dag:
+    task = PythonOperator(
+        task_id="hello_task",
+        python_callable=my_task,
+    )
+```
+
+## 주의사항
+
+- 메모리 4GB 이상, CPU 2코어 이상 권장. 부족하면 `airflow-init`에서 경고를 출력한다.
+- `AIRFLOW__CORE__LOAD_EXAMPLES: 'true'`를 `'false'`로 바꾸면 샘플 DAG가 안 뜬다. 처음엔 켜두고 UI 구조 파악 후 끄는 게 좋다.
+- 이 설정은 로컬 개발용이다. 운영 환경에서는 Fernet Key, DB 비밀번호, API 인증 설정을 별도로 강화해야 한다.
