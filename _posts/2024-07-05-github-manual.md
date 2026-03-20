@@ -5,7 +5,7 @@ subtitle: git
 author: HyeongJin
 date: 2024-07-05 09:00:00 +0900
 categories: GIT
-tag: [git, github.io]
+tags: [git, github.io]
 sidebar: []
 published: true
 ---
