@@ -10,7 +10,7 @@ sidebar: []
 published: true
 ---
 
-클레딧 서비스에 필요한 영화/드라마 데이터를 자동으로 수집하고 적재하는 파이프라인이 필요했다. KOBIS(영화진흥위원회)와 TMDB(The Movie Database)를 주 소스로 선택했다.
+영화/드라마 데이터를 자동으로 수집하고 적재하는 파이프라인이 필요했다. KOBIS(영화진흥위원회)와 TMDB(The Movie Database)를 주 소스로 선택했다.
 
 Prefect를 오케스트레이터로 쓰기로 했다. Airflow도 검토했는데 Prefect는 로컬 실행이 간단하고 태스크 단위 재시도 설정이 직관적이었다.
 

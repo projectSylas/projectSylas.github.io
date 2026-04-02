@@ -10,7 +10,7 @@ sidebar: []
 published: true
 ---
 
-클레딧 앱에 본인인증을 붙였다. NICE에서 제공하는 패스(PASS) 인증 방식.
+앱에 본인인증을 붙였다. NICE에서 제공하는 패스(PASS) 인증 방식.
 
 공식 문서가 있긴 한데, React Native WebView에서 쓸 때의 레퍼런스가 거의 없어서 처음부터 삽질이었다.
 
@@ -71,8 +71,8 @@ def get_return_url(self) -> str:
     env = settings.ENVIRONMENT  # 'local', 'staging', 'production'
     return {
         'local': 'http://localhost:8000/api/nice/callback/',
-        'staging': 'https://staging.cleddit.com/api/nice/callback/',
-        'production': 'https://api.cleddit.com/api/nice/callback/',
+        'staging': 'https://staging.example.com/api/nice/callback/',
+        'production': 'https://api.example.com/api/nice/callback/',
     }.get(env, settings.NICE_CALLBACK_URL)
 ```
 
@@ -84,13 +84,13 @@ iOS와 Android 차이가 있었다.
 
 ```typescript
 // iOS: 커스텀 스킴 설정 (info.plist)
-// CFBundleURLSchemes: ["cleddit"]
-// 딥링크: cleddit://nice-callback
+// CFBundleURLSchemes: ["myapp"]
+// 딥링크: myapp://nice-callback
 
 // Android: AndroidManifest.xml
 // <intent-filter>
 //   <action android:name="android.intent.action.VIEW" />
-//   <data android:scheme="cleddit" android:host="nice-callback" />
+//   <data android:scheme="myapp" android:host="nice-callback" />
 // </intent-filter>
 ```
 
@@ -100,7 +100,7 @@ WebView에서 딥링크 URL을 인터셉트해야 한다.
 <WebView
   source={{ uri: niceAuthUrl }}
   onShouldStartLoadWithRequest={(request) => {
-    if (request.url.startsWith('cleddit://')) {
+    if (request.url.startsWith('myapp://')) {
       // 딥링크 처리
       Linking.openURL(request.url);
       return false;  // WebView에서 로드 차단

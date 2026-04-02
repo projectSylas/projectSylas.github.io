@@ -10,7 +10,7 @@ sidebar: []
 published: true
 ---
 
-`career_db_etl_flow`는 운영 DB의 커리어 로우데이터(`staging.career_cleddit_db`)와 KOBIS-TMDB 병합 ETL 결과(`merge.career_generation_etl`)를 매칭해서 최종 병합 테이블(`merge.career_db_etl`)을 만드는 플로우다.
+`career_db_etl_flow`는 운영 DB의 커리어 로우데이터(`staging.career_raw`)와 KOBIS-TMDB 병합 ETL 결과(`merge.career_generation_etl`)를 매칭해서 최종 병합 테이블(`merge.career_db_etl`)을 만드는 플로우다.
 
 초기 구현에서는 ETL 데이터 전체를 메모리에 올린 다음 DB 레코드와 매칭했다. 데이터가 수십만 건으로 늘어나면서 OOM이 발생했다.
 

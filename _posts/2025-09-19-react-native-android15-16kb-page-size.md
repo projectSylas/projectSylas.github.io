@@ -12,7 +12,7 @@ published: true
 
 Google이 Android 15부터 일부 기기에서 16KB 페이지 크기를 지원하기 시작했고, 2025년 이후로는 Play Store 신규 앱이 16KB 정렬을 지원해야 한다는 요구사항을 공지했다.
 
-클레딧(Cleddit) React Native 앱에서 이 대응 작업을 했다.
+React Native 앱에서 이 대응 작업을 했다.
 
 ## 뭐가 문제인가
 

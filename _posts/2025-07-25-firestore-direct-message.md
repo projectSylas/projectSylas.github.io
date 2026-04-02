@@ -10,7 +10,7 @@ sidebar: []
 published: true
 ---
 
-클레딧 앱에 DM 기능을 붙였다. 기술 선택은 Firestore. Django 서버에 채팅 테이블을 만드는 것보다 실시간 동기화가 기본으로 제공되기 때문.
+앱에 DM 기능을 붙였다. 기술 선택은 Firestore. Django 서버에 채팅 테이블을 만드는 것보다 실시간 동기화가 기본으로 제공되기 때문.
 
 ## Firestore 데이터 구조
 
