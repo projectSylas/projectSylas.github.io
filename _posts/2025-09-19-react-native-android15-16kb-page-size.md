@@ -72,7 +72,7 @@ android {
 React Native에서 버전 코드는 `android/app/build.gradle`과 iOS는 `ios/[AppName]/Info.plist` 두 곳을 같이 올려야 한다.
 
 ```xml
-<!-- ios/Cleddit/Info.plist -->
+<!-- ios/MyApp/Info.plist -->
 <key>CFBundleVersion</key>
 <string>3063</string>
 ```
